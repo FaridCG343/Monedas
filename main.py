@@ -1,32 +1,32 @@
 comV = []
 dicM = {}
 mcm = {}
-m = [1,2,11]
-ValorB = 20
+m = [10, 15, 20, 25, 50, 100]
+ValorB = 100
 
 
 def agregarMcM():
-        for x in comV:
-            aux = []
-            for cn in x:
-                aux.append(cn)
-            for y in mcm:
-                for a in mcm[y]:
-                    cvqc = y // a
-                    if aux.count(a) >= cvqc:
-                        ltemp = aux.copy()
-                        for b in range(cvqc):
-                            ltemp.remove(a)
-                        for c in mcm[y]:
-                            ltemp2 = ltemp.copy()
-                            if c != a:
-                                for d in range(y // c):
-                                    ltemp2.append(c)
-                                ltemp2.sort(reverse=True)
-                                if ltemp2 in comV:
-                                    pass
-                                else:
-                                    comV.append(ltemp2.copy())
+    for x in comV:
+        aux = []
+        for cn in x:
+            aux.append(cn)
+        for y in mcm:
+            for a in mcm[y]:
+                cvqc = y // a
+                if aux.count(a) >= cvqc:
+                    ltemp = aux.copy()
+                    for b in range(cvqc):
+                        ltemp.remove(a)
+                    for c in mcm[y]:
+                        ltemp2 = ltemp.copy()
+                        if c != a:
+                            for d in range(y // c):
+                                ltemp2.append(c)
+                            ltemp2.sort(reverse=True)
+                            if ltemp2 in comV:
+                                pass
+                            else:
+                                comV.append(ltemp2.copy())
 
 
 def maximo_comun_divisor(a, b):
@@ -87,11 +87,9 @@ def agregar(temporal):
 
 def crearcomV(monedas):
     for i in range(len(monedas)):
-
         valor = ValorB
         cmb = []
         for y in range(i, len(monedas)):
-            print("xd")
             xd = True
             valor2 = monedas[y]
             while xd:
@@ -169,10 +167,10 @@ print(dicM)
 print(mcm)
 crearcomV(moneda)
 agregarMcM()
-i=1
+i = 1
 for x in comV:
     suma = 0
     for y in x:
         suma += y
-    print(i,suma, x)
-    i+=1
+    print(i, suma, x)
+    i += 1
